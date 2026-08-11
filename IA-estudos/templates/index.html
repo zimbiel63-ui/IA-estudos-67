@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Estuda IA</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="banner">
+
+    <img class="logo" src="/static/imagens/logo.png" alt="Logo Estuda IA">
+
+</div>
+
+
+<div class="topo">
+
+    <h1>Estuda IA</h1>
+
+    <p>
+        Seu professor inteligente para aprender passo a passo.
+    </p>
+
+</div>
+
+
+
+<div class="historico">
+
+    {% for conversa in historico %}
+
+        <div class="pergunta">
+
+            <h3>Você:</h3>
+
+            <p>
+                {{ conversa.pergunta }}
+            </p>
+
+        </div>
+
+
+        <div class="resposta">
+
+            <h3>Estuda IA:</h3>
+
+            <p style="white-space: pre-line;">
+                {{ conversa.resposta }}
+            </p>
+
+        </div>
+
+
+    {% endfor %}
+
+
+</div>
+
+
+
+<form action="/perguntar" method="POST">
+
+    <input 
+        type="text"
+        name="pergunta"
+        placeholder="Digite sua dúvida"
+        required
+    >
+
+
+    <button type="submit">
+
+        Perguntar
+
+    </button>
+
+
+</form>
+
+
+
+</body>
+
+</html>
