@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from professores.professor_mat_9ano import responder_pergunta
+from professores.professor_mat_9ano import responder_matematica
 app = Flask(__name__)
 
 app.secret_key = "estuda-ia-chave"
