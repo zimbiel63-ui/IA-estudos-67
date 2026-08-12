@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, session
-from professores.professor_mat_9ano import responder_matematica
+from professor import responder_pergunta
+
+
 app = Flask(__name__)
 
 app.secret_key = "estuda-ia-chave"
-
 
 
 @app.route("/")
@@ -18,24 +19,34 @@ def inicio():
     )
 
 
-
 @app.route("/perguntar", methods=["POST"])
 def perguntar():
 
-    pergunta = request.form["pergunta"]
+    pergunta = request.form.get(
+        "pergunta",
+        ""
+    ).strip()
 
+    if not pergunta:
 
+        return render_template(
+            "index.html",
+            historico=session.get(
+                "historico",
+                []
+            )
+        )
+
+# Linha extra
     historico = session.get(
         "historico",
         []
     )
 
-
     resposta = responder_pergunta(
         pergunta,
         session
     )
-
 
     historico.append(
         {
@@ -44,15 +55,12 @@ def perguntar():
         }
     )
 
-
     session["historico"] = historico
-
 
     return render_template(
         "index.html",
         historico=historico
     )
-
 
 
 if __name__ == "__main__":
