@@ -123,3 +123,65 @@ button:hover {
 .resposta h2 {
     text-align: center;
 }
+.alunos {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 230px;
+    z-index: 10;
+    color: #666;
+}
+
+.alunos h3 {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.alunos p {
+    font-size: 14px;
+    margin: 8px 0;
+    color: #666;
+}
+.pergunta {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px auto 10px auto;
+    max-width: 700px;
+}
+
+.pergunta h3 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.pergunta p {
+    color: #fff;
+    margin: 0;
+}
+
+
+.resposta {
+    background-color: #fff;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.resposta h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.resposta p {
+    color: #333;
+    margin: 0;
+}
