@@ -5,87 +5,104 @@
 
     <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Estuda IA</title>
 
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
-
 <body>
 
+    <!-- BANNER / LOGO -->
+    <div class="banner">
 
-<div class="banner">
+        <img
+            class="logo"
+            src="{{ url_for('static', filename='imagens/logo.png') }}"
+            alt="Logo Estuda IA"
+        >
 
-    <img class="logo" src="/static/imagens/logo.png" alt="Logo Estuda IA">
-
-</div>
-
-
-<div class="topo">
-
-    <h1>Estuda IA</h1>
-
-    <p>
-        Seu professor inteligente para aprender passo a passo.
-    </p>
-
-</div>
+    </div>
 
 
+    <!-- TOPO -->
+    <div class="topo">
 
-<div class="historico">
+        <h1>Estuda IA</h1>
 
-    {% for conversa in historico %}
+        <p>
+            Seu professor inteligente para aprender passo a passo.
+        </p>
 
-        <div class="pergunta">
-
-            <h3>Você:</h3>
-
-            <p>
-                {{ conversa.pergunta }}
-            </p>
-
-        </div>
+    </div>
 
 
-        <div class="resposta">
+    <!-- HISTÓRICO DA CONVERSA -->
+    <div class="historico">
 
-            <h3>Estuda IA:</h3>
+        {% for conversa in historico %}
 
-            <p style="white-space: pre-line;">
-                {{ conversa.resposta }}
-            </p>
+            <!-- PERGUNTA -->
+            <div class="pergunta">
 
-        </div>
+                <h3>Você:</h3>
 
+                <p>
+                    {{ conversa.pergunta }}
+                </p>
 
-    {% endfor %}
-
-
-</div>
-
-
-
-<form action="/perguntar" method="POST">
-
-    <input 
-        type="text"
-        name="pergunta"
-        placeholder="Digite sua dúvida"
-        required
-    >
+            </div>
 
 
-    <button type="submit">
+            <!-- RESPOSTA -->
+            <div class="resposta">
 
-        Perguntar
+                <h3>Estuda IA:</h3>
 
-    </button>
+                <p style="white-space: pre-line;">
+                    {{ conversa.resposta }}
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
 
 
-</form>
+    <!-- CAMPO PARA FAZER PERGUNTA -->
+    <form action="/perguntar" method="POST">
 
+        <input
+            type="text"
+            name="pergunta"
+            placeholder="Digite sua dúvida"
+            required
+        >
+
+        <button type="submit">
+            Perguntar
+        </button>
+
+    </form>
+
+
+    <!-- ALUNOS -->
+    <div class="alunos">
+
+        <h3>
+            ELABORADO PELOS SEGUINTES ALUNOS DA EMEF SOLANO TRINDADE
+        </h3>
+
+        <p>Gabriel Lima Soares</p>
+        <p>Diogo Mendes da Silva</p>
+        <p>Ryan Ferreira da Silva</p>
+        <p>Josué de Sousa Veloso</p>
+        <p>Davi Ribeiro da Silva</p>
+
+    </div>
 
 
 </body>
